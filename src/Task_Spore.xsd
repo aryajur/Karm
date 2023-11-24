@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio 1.0.7.0 (http://www.liquid-technologies.com) -->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Task">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" name="DB-Data">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DBID" type="xs:string" />
+            <xs:element name="Updated" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Date and time the task is updated in the central database</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element default="NO" name="Modified">
+        <xs:annotation>
+          <xs:documentation>Tag having 3 possible values:
+YES: Task has been modified by the offline system
+NO: Task has not been touched by the offline system
+DEL: Offline system requests task to be deleted.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="YES" />
+            <xs:enumeration value="NO" />
+            <xs:enumeration value="DEL" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element default="Public" name="Private">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Private" />
+            <xs:enumeration value="Public" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TaskID" type="TaskID">
+        <xs:annotation>
+          <xs:documentation>Task ID of the task. Should be automatically generated and should be the hierarchy identifier for the task. Example T0.1.1.1.1 where T0 is the root node then T0.1 is the 1st task inside the root node etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Title" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Title/Name for the task for identification</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Start" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Task is started. XML Date format is YYYY-MM-DD</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Fin" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date task was marked DONE</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="People">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Who" type="ID_list">
+              <xs:annotation>
+                <xs:documentation>People incharge of the task</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Assignee">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="ID" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Locked">
+              <xs:annotation>
+                <xs:documentation>To indicate if the node access is locked. If Status="Yes" then the Access List contains the IDs of the people who can access this node. Apart from the Access List the Who list can always access the node. The difference between the Access List and the Who list is as follows: The Who list are the responsible people for the task and if a person is in the Who list he can read/write the task and all its sub-tasks. If a person is in the Access List however at a minimum he can read that task and its full hierarchy. If the person mentioned in the Access List is given Read/Write permission then the person can only edit this task not its children in the hierarchy.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+                    <xs:annotation>
+                      <xs:documentation>Must Contain the Company Login ID</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string" />
+                        <xs:element default="Read Only" name="Status">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Read Only" />
+                              <xs:enumeration value="Read/Write" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element default="Not Started" name="Status">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Not Started" />
+            <xs:enumeration value="On Track" />
+            <xs:enumeration value="Behind" />
+            <xs:enumeration value="Done" />
+            <xs:enumeration value="Obsolete" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Priority">
+        <xs:annotation>
+          <xs:documentation>Priority of the Task for its parent task completion. 1 is highest priority.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Due" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Task is started. XML Date format is YYYY-MM-DD</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Estimate" type="xs:float">
+        <xs:annotation>
+          <xs:documentation>The estimate in number of hours or days however the system is designed to interpret</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Schedules">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Estimate">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Estimates">
+                    <xs:annotation>
+                      <xs:documentation>This element contains the planned work dates for the task as planned by the responsible people for the task. The list of periods listed in this can be ORed with the periods of all sub tasks to create a Gantt chart for this Task. Maximum 3 revisions allowed for this.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="Comment" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Element to add comment, eg. 1st plan or 1st revision due to following reasons etc.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Updated" type="xs:date" />
+                        <xs:element minOccurs="1" maxOccurs="1" name="Period" type="Period">
+                          <xs:annotation>
+                            <xs:documentation>Defines a working period for this task.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Committed">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="1" name="Committed">
+                    <xs:annotation>
+                      <xs:documentation>This element contains the planned work dates for the task as planned by the responsible people for the task. The list of periods listed in this can be ORed with the periods of all sub tasks to create a Gantt chart for this Task. Maximum 3 revisions allowed for this.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="Comment" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Element to add comment, eg. 1st plan or 1st revision due to following reasons etc.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Updated" type="xs:date" />
+                        <xs:element minOccurs="1" maxOccurs="1" name="Period" type="Period">
+                          <xs:annotation>
+                            <xs:documentation>Defines a working period for this task.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Revs">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Rev">
+                    <xs:annotation>
+                      <xs:documentation>This element contains the planned work dates for the task as planned by the responsible people for the task. The list of periods listed in this can be ORed with the periods of all sub tasks to create a Gantt chart for this Task. Maximum 3 revisions allowed for this.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="Comment" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Element to add comment, eg. 1st plan or 1st revision due to following reasons etc.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Updated" type="xs:date" />
+                        <xs:element minOccurs="1" maxOccurs="1" name="Period" type="Period">
+                          <xs:annotation>
+                            <xs:documentation>Defines a working period for this task.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Actual">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="WorkDone">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Date" type="xs:date" />
+                        <xs:element name="Hours" type="xs:integer" />
+                        <xs:element minOccurs="0" name="Comment" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Element to add comment, eg. I did this today, etc.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Comments" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Any comments or description points for the task go here.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Category" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Category of the task. Can be used to create a sub-task structure for the task.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Sub-Category" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Sub-Category of the task. Can be used to create a sub-task structure for the task.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Tags">
+        <xs:annotation>
+          <xs:documentation>List of ; separated tags</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="tag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Advanced">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Updates">
+              <xs:annotation>
+                <xs:documentation>Contains a list of updates with the date the update was added.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Update">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute name="Date" type="xs:date" />
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Events">
+              <xs:annotation>
+                <xs:documentation>To store Events related with this task.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Event">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Title" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Title of the Event</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="When">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="First" type="xs:dateTime" />
+                              <xs:element minOccurs="0" name="Periodic">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Repeats">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Daily" />
+                                          <xs:enumeration value="Weekday" />
+                                          <xs:enumeration value="Yearly" />
+                                          <xs:enumeration value="Every Mon Wed and Fri" />
+                                          <xs:enumeration value="Every Tue Thu" />
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Where" type="Place">
+                          <xs:annotation>
+                            <xs:documentation>Place where the Event will Occur</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Description" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>Description of the Event</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="PopUp">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="Next" type="xs:date" />
+                  <xs:element name="Periodic">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Repeats">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Daily" />
+                              <xs:enumeration value="Weekday" />
+                              <xs:enumeration value="Yearly" />
+                              <xs:enumeration value="Every Mon Wed and Fri" />
+                              <xs:enumeration value="Every Tue Thu" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Properties">
+              <xs:annotation>
+                <xs:documentation>Custom Properties can be defined here. These properties can be task specific. Each property can define an attribute and a text description.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Property">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Attribute" type="xs:string" />
+                        <xs:element name="Text" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="Links">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Link" type="xs:anyURI" />
+                        <xs:element name="Type">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="File" />
+                              <xs:enumeration value="Wiki" />
+                              <xs:enumeration value="Issue Tracker" />
+                              <xs:enumeration value="Intranet" />
+                              <xs:enumeration value="Web" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Comment" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Approvers" type="ID_list">
+              <xs:annotation>
+                <xs:documentation>List of Approvers go here if needed. If needed="Yes" then the list will contain the list of IDs that need to approve the task completion.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Interdependencies">
+              <xs:annotation>
+                <xs:documentation>Interdependencies of the task with other tasks. If needed="Yes" Then List contains a list of task IDs that are interdependencies of this task.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="TaskID" />
+                        <xs:element name="Type">
+                          <xs:annotation>
+                            <xs:documentation>This Element describes the type of dependancy. "Dependancy Before" means that the dependancy task should be finished before this task can be marked as DONE. "This Task Before" means that this task will be finished before the Dependancy can be marked DONE. "Track Dependancy" means that the dependancy is just to be tracked during the lifetime of this task.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Dependancy Before" />
+                              <xs:enumeration value="This Task Before" />
+                              <xs:enumeration value="Track Dependancy" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Messages">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="1" maxOccurs="unbounded" name="Msg">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element default="Normal" name="Priority">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Top" />
+                              <xs:enumeration value="Normal" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Subject" type="xs:string" />
+                        <xs:element name="From" type="TaskID" />
+                        <xs:element name="Date" type="xs:dateTime" />
+                        <xs:element name="Message" type="xs:string" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="Evaluation">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="Supervisor">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="Eval">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string" />
+                              <xs:element default="3" name="Difficulty">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very difficult)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5 (easy)" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Creativity">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very creative)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Innovation">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very innovative)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Hard_Work">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (Lots of Work done)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="Praise">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="ID" type="xs:string" />
+                                          <xs:element name="Comment" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Self">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="Eval">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string" />
+                              <xs:element default="3" name="Difficulty">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very difficult)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5 (easy)" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Creativity">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very creative)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Innovation">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (very innovative)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" default="3" name="Hard_Work">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="1 (Lots of Work done)" />
+                                    <xs:enumeration value="2" />
+                                    <xs:enumeration value="3" />
+                                    <xs:enumeration value="4" />
+                                    <xs:enumeration value="5" />
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="Praise">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="ID" type="xs:string" />
+                                          <xs:element name="Comment" type="xs:string" />
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SYS">
+        <xs:annotation>
+          <xs:documentation>To keep book keeping for the task for the user</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="MSGQ">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="SYM" type="SYM" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SubTasks">
+        <xs:annotation>
+          <xs:documentation>All subtasks for this task come here.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:choice>
+              <xs:element name="Task" type="Task" />
+              <xs:element name="Task_Link" type="TaskID" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ID_list">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Item">
+        <xs:annotation>
+          <xs:documentation>Must Contain the Company Login ID</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ID" type="xs:string" />
+            <xs:element name="Status">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Active" />
+                  <xs:enumeration value="Inactive" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Place">
+    <xs:annotation>
+      <xs:documentation>To store place enumerations for the company.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaskID">
+    <xs:annotation>
+      <xs:documentation>To Represent the TaskID for a task</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z]+[.a-zA-Z0-9]*(_[1-9][0-9]*)*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Period">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="DP">
+        <xs:annotation>
+          <xs:documentation>The Day plan element contains the date and the work hours planned for the day</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Date" type="xs:date" />
+            <xs:choice>
+              <xs:element minOccurs="0" maxOccurs="10" name="TP" type="Time_Period">
+                <xs:annotation>
+                  <xs:documentation>The Time plan for the day</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" name="Hours" type="xs:float" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Time_Period">
+    <xs:sequence>
+      <xs:element name="STA" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Start Time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="STP" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Stop Time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Task_Spore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Task" type="Task" />
+      </xs:sequence>
+      <xs:attribute name="usid" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>User and Slot ID of the task Spore</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="cksum" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Check Sum for the spore</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SYM">
+    <xs:annotation>
+      <xs:documentation>System Message to be associated with the task</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TYPE" type="xs:string" />
+      <xs:element name="MSG" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

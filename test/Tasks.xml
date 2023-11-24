@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio 1.0.7.0 (http://www.liquid-technologies.com) -->
+<Task_Spore xsi:noNamespaceSchemaLocation="Task_Spore.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Task>
+		<Modified>YES</Modified>
+		<Private>Public</Private>
+		<TaskID>HomeChores</TaskID>
+		<Title>Home Chores</Title>
+		<Start>2010-02-24</Start>
+		<People><Who>
+			<Item>
+				<ID>milind.gupta</ID>
+				<Status>Active</Status>
+			</Item>
+		</Who>
+		</People>
+		<Status>Not Started</Status>
+		<Comments>Master Node for all Home Chores</Comments>
+		<Tags>
+			<tag>Current Focus</tag>
+		</Tags>
+	</Task>
+	<Task>
+		<Modified>YES</Modified>
+		<Private>Public</Private>
+		<TaskID>TechChores</TaskID>
+		<Title>Technical Work</Title>
+		<Start>2010-02-24</Start>
+		<People><Who>
+			<Item>
+				<ID>milind.gupta</ID>
+				<Status>Active</Status>
+			</Item>
+		</Who>
+		</People>
+		<Status>Not Started</Status>
+		<Comments>Master node to list all technical work to be done at home</Comments>
+		<SubTasks>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>TechChores_9</TaskID>
+				<Title>Documentation Tasks</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_9_2</TaskID>
+						<Title>Document LEDSINK oscillation issue</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+							<Item>
+								<ID>milind0x</ID>
+								<Status>Inactive</Status>
+							</Item>
+						</Who>
+						<Locked>
+								<Item>
+									<ID>Guy1</ID>
+									<Status>Read Only</Status>
+								</Item>
+								<Item>
+									<ID>Guy2</ID>
+									<Status>Read Only</Status>
+								</Item>
+								<Item>
+									<ID>Guy3</ID>
+									<Status>Read/Write</Status>
+								</Item>
+								<Item>
+									<ID>Guy4</ID>
+									<Status>Read Only</Status>
+								</Item>
+								<Item>
+									<ID>Guy 5</ID>
+									<Status>Read/Write</Status>
+								</Item>
+						</Locked></People>
+						<Status>Not Started</Status>
+						<Comments>Oscillation due to large inductance on the drain of the Source follower. Which made the gain of the Diamond buffer &gt; 1 since the impedance on the gate became inuctive!</Comments>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_9_3</TaskID>
+						<Title>Finish Oscillator Notes</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+							<Item>
+								<ID>aryajur</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Priority>1</Priority>
+						<Comments>Document all Oscillators study.</Comments>
+						<Tags>
+							<tag>In Queue</tag>
+							<tag>Multi Day Task</tag>
+						</Tags>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_9_5</TaskID>
+						<Title>Document Transconductance Enhancement cell</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_9_7</TaskID>
+						<Title>Document Slope Compensation Learnings</Title>
+						<Start>2010-02-24</Start>
+						<Fin>2010-12-22</Fin>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Done</Status>
+						<Tags>
+							<tag>In Queue</tag>
+							<tag>Two Hour Task</tag>
+						</Tags>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_9_8</TaskID>
+						<Title>Add formula Compendium for each design in Circuit ideas XSD</Title>
+						<Start>2010-02-26</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>TechChores_10</TaskID>
+				<Title>Write the Trinary DAC circuit idea article</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<Comments>- Show it using just 4 pins get 80 states in the DAC. 
+- Show maxima program and design procedure.</Comments>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>TechChores_11</TaskID>
+				<Title>Port FreeRTOS in MSP430F2013</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>TechChores_12</TaskID>
+				<Title>Circuit Search Engine</Title>
+				<Start>2010-12-28</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>On Track</Status>
+				<Category>Title</Category>
+				<Sub-Category>Project</Sub-Category>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_1</TaskID>
+						<Title>Make the Structure creation and Files reading code</Title>
+						<Start>2010-12-28</Start>
+						<Fin>2011-02-04</Fin>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Done</Status>
+						<Due>2010-12-29</Due>
+						<Schedules>
+							<Revs>
+								<Rev>
+									<Comment />
+									<Updated>2010-12-28</Updated>
+									<Period>
+										<DP>
+											<Date>2010-12-28</Date>
+										</DP>
+										<DP>
+											<Date>2010-12-29</Date>
+										</DP>
+									</Period>
+								</Rev>
+							</Revs>
+						</Schedules>
+						<Category>Design</Category>
+						<Sub-Category>Development</Sub-Category>
+						<Tags> 
+							<tag>Current Focus</tag> 
+							<tag>Test Tag</tag>
+						</Tags>						
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_2</TaskID>
+						<Title>Write the Main algorithm</Title>
+						<Start>2010-12-28</Start>
+						<Fin>2011-02-04</Fin>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Done</Status>
+						<Due>2010-12-31</Due>
+						<Schedules>
+							<Revs>
+								<Rev>
+									<Comment />
+									<Updated>2010-12-28</Updated>
+									<Period>
+										<DP>
+											<Date>2010-12-30</Date>
+										</DP>
+										<DP>
+											<Date>2010-12-31</Date>
+										</DP>
+									</Period>
+								</Rev>
+							</Revs>
+						</Schedules>
+						<Category>Design</Category>
+						<Sub-Category>Development</Sub-Category>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_3</TaskID>
+						<Title>Debugging and Testing</Title>
+						<Start>2010-12-28</Start>
+						<Fin>2011-02-08</Fin>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Done</Status>
+						<Due>2011-02-08</Due>
+						<Schedules>
+							<Revs>
+								<Rev>
+									<Comment />
+									<Updated>2010-12-28</Updated>
+									<Period>
+										<DP>
+											<Date>2011-01-01</Date>
+										</DP>
+										<DP>
+											<Date>2011-01-02</Date>
+										</DP>
+									</Period>
+								</Rev>
+								<Rev>
+									<Comment />
+									<Updated>2011-02-04</Updated>
+									<Period>
+										<DP>
+											<Date>2011-02-04</Date>
+										</DP>
+										<DP>
+											<Date>2011-02-08</Date>
+										</DP>
+									</Period>
+								</Rev>
+							</Revs>
+						</Schedules>
+						<Category>Design</Category>
+						<Sub-Category>Development</Sub-Category>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_4</TaskID>
+						<Title>Add subcircuit support for SPICE netlist</Title>
+						<Start>2011-02-08</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_5</TaskID>
+						<Title>Add spectre netlist parser</Title>
+						<Start>2011-02-08</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_6</TaskID>
+						<Title>Add support for ORing component existence</Title>
+						<Start>2011-02-08</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_7</TaskID>
+						<Title>Add support for ignoring components</Title>
+						<Start>2011-02-08</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Comments>Like resistors lower than certain value etc.</Comments>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_8</TaskID>
+						<Title>Add support for Passive network reduction in search</Title>
+						<Start>2011-02-09</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_9</TaskID>
+						<Title>Modify matching percentage to show nodes and components both</Title>
+						<Start>2011-02-15</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Comments>So components that do not match the complete pins would still increase the component percentage but increase the node percentage fully</Comments>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_10</TaskID>
+						<Title>Implement a totally Explicit match flag</Title>
+						<Start>2011-02-15</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Comments>This causes any components that have been reported in a previous complete match never to be reused for subsequent matches</Comments>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>TechChores_12_11</TaskID>
+						<Title>Add ability to make a node match to anything at all</Title>
+						<Start>2011-02-16</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Comments>This would be required to match MOS devices with their Bulks connected anywhere. Or for example resistors with their bodies connected anywhere. 
+This could be done by creating a 0 in the connection configuration for that pin which basically means ignore that one in the nodeMatch function.</Comments>
+					</Task>
+				</SubTasks>
+			</Task>
+		</SubTasks>
+	</Task>
+	<Task>
+		<Modified>YES</Modified>
+		<Private>Public</Private>
+		<TaskID>StudyChores</TaskID>
+		<Title>Study Work</Title>
+		<Start>2010-02-24</Start>
+		<People><Who>
+			<Item>
+				<ID>milind.gupta</ID>
+				<Status>Active</Status>
+			</Item>
+		</Who>
+		</People>
+		<Status>Not Started</Status>
+		<Comments>Master node for all study related tasks</Comments>
+		<SubTasks>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_2</TaskID>
+				<Title>Switching Regulators Study</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_2_1</TaskID>
+						<Title>Create Compensation cookbook with derivation</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<SubTasks>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_1_1</TaskID>
+								<Title>Buck Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+								<SubTasks>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_1_1</TaskID>
+										<Title>Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_1_2</TaskID>
+										<Title>Voltage Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_1_3</TaskID>
+										<Title>Average Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+								</SubTasks>
+							</Task>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_1_2</TaskID>
+								<Title>Boost Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+								<SubTasks>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_2_1</TaskID>
+										<Title>Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_2_2</TaskID>
+										<Title>Voltage Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_2_3</TaskID>
+										<Title>Average Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+								</SubTasks>
+							</Task>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_1_3</TaskID>
+								<Title>Buck-Boost Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+								<SubTasks>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_3_1</TaskID>
+										<Title>Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_3_2</TaskID>
+										<Title>Voltage Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+									<Task>
+										<Modified>YES</Modified>
+										<Private>Public</Private>
+										<TaskID>StudyChores_2_1_3_3</TaskID>
+										<Title>Average Current Mode Control</Title>
+										<Start>2010-02-24</Start>
+										<People><Who>
+											<Item>
+												<ID>milind.gupta</ID>
+												<Status>Active</Status>
+											</Item>
+										</Who>
+										</People>
+										<Status>Not Started</Status>
+									</Task>
+								</SubTasks>
+							</Task>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_1_4</TaskID>
+								<Title>Feedforward Compensation</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+								<Comments>Adjusting RAMP heing proportional to Input Voltage</Comments>
+							</Task>
+						</SubTasks>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_2_3</TaskID>
+						<Title>Create Macromodels</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+						<Comments>Show issues of instability and their fixing</Comments>
+						<SubTasks>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_3_1</TaskID>
+								<Title>Buck Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+							</Task>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_3_2</TaskID>
+								<Title>Boost Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+							</Task>
+							<Task>
+								<Modified>YES</Modified>
+								<Private>Public</Private>
+								<TaskID>StudyChores_2_3_3</TaskID>
+								<Title>Buck-Boost Regulator</Title>
+								<Start>2010-02-24</Start>
+								<People><Who>
+									<Item>
+										<ID>milind.gupta</ID>
+										<Status>Active</Status>
+									</Item>
+								</Who>
+								</People>
+								<Status>Not Started</Status>
+							</Task>
+						</SubTasks>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_2_4</TaskID>
+						<Title>Verify Slope Compensation Derivations using Octave Programs</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_3</TaskID>
+				<Title>Study PLLs</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_3_1</TaskID>
+						<Title>Razavi Chapter</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_3_2</TaskID>
+						<Title>TH Lee Chapter</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_3_3</TaskID>
+						<Title>F M Gardener</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_5</TaskID>
+				<Title>Listen to Advanced Analog Lectures (Berkeley)</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_6</TaskID>
+				<Title>Signals and Systems</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<Comments>All tasks to get good in signals and systems</Comments>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_6_1</TaskID>
+						<Title>Listen to EE120 Advanced Signals and Systems (Berkeley)</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_6_2</TaskID>
+						<Title>Study Oppenheim</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_8</TaskID>
+				<Title>Listen to ADC/DAC lectures (berkeley)</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_8_1</TaskID>
+						<Title>Create Sample ADC/DAC Circuits</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_9</TaskID>
+				<Title>Listen to Wireless Lectures (Berkeley)</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_10</TaskID>
+				<Title>Feedback Theory Intricacies</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<SubTasks>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_10_1</TaskID>
+						<Title>Gray and Meyer</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+					<Task>
+						<Modified>YES</Modified>
+						<Private>Public</Private>
+						<TaskID>StudyChores_10_2</TaskID>
+						<Title>Choma notes</Title>
+						<Start>2010-02-24</Start>
+						<People><Who>
+							<Item>
+								<ID>milind.gupta</ID>
+								<Status>Active</Status>
+							</Item>
+						</Who>
+						</People>
+						<Status>Not Started</Status>
+					</Task>
+				</SubTasks>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_12</TaskID>
+				<Title>Study Gm/Id methodology and list out techniques</Title>
+				<Start>2010-02-24</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<Comments>Make gm/Id vs Id/(w/L) graph as the basis and define how to size devices based on various approaches i.e.
+1. Selecting the current through the device
+2. Selecting the gm of the device
+3. Selecting the speed/size of the device</Comments>
+			</Task>
+			<Task>
+				<Modified>YES</Modified>
+				<Private>Public</Private>
+				<TaskID>StudyChores_15</TaskID>
+				<Title>Study the Output stages chapter from Gray and Meyer</Title>
+				<Start>2010-11-30</Start>
+				<People><Who>
+					<Item>
+						<ID>milind.gupta</ID>
+						<Status>Active</Status>
+					</Item>
+				</Who>
+				</People>
+				<Status>Not Started</Status>
+				<Priority>4</Priority>
+				<Tags>
+					<tag>In Queue</tag>
+					<tag>Multi Day Task</tag>
+				</Tags>
+			</Task>
+		</SubTasks>
+	</Task>
+	<Task>
+		<Modified>YES</Modified>
+		<Private>Public</Private>
+		<TaskID>InternetWork</TaskID>
+		<Title>Internet Work</Title>
+		<Start>2010-02-24</Start>
+		<People><Who>
+			<Item>
+				<ID>milind.gupta</ID>
+				<Status>Active</Status>
+			</Item>
+		</Who>
+		</People>
+		<Status>On Track</Status>
+		<Comments>Tasks related to Internet and research to be done there</Comments>
+	</Task>
+	<Task>
+		<Modified>YES</Modified>
+		<Private>Public</Private>
+		<TaskID>MarketTasks</TaskID>
+		<Title>Market Tasks</Title>
+		<Start>2010-02-24</Start>
+		<People><Who>
+			<Item>
+				<ID>milind.gupta</ID>
+				<Status>Active</Status>
+			</Item>
+		</Who>
+</People>
+		<Status>Not Started</Status>
+		<Comments>All Market tasks go here</Comments>
+	</Task>
+	<Task />
+</Task_Spore>
